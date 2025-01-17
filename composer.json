@@ -1,0 +1,54 @@
+{
+    "name": "itk-dev/drupal_psr_cache",
+    "description": "PSR cache implementations for Drupal 10+",
+    "license": "MIT",
+    "type": "drupal-module",
+    "keywords": [
+        "psr",
+        "cache"
+    ],
+    "authors": [
+        {
+            "name": "Mikkel Ricky",
+            "email": "rimi@aarhus.dk"
+        }
+    ],
+    "homepage": "https://github.com/itk-dev/drupal_psr_cache",
+    "require": {
+        "psr/cache": "^3.0"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+        "drupal/coder": "^8.3",
+        "ergebnis/composer-normalize": "^2.45",
+        "mglaman/drupal-check": "^1.4"
+    },
+    "minimum-stability": "stable",
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "ergebnis/composer-normalize": true
+        },
+        "sort-packages": true
+    },
+    "scripts": {
+        "code-analysis": [
+            "@code-analysis/drupal-check"
+        ],
+        "code-analysis/drupal-check": [
+            "vendor/bin/drupal-check --deprecations --analysis --exclude-dir=vendor *.* modules/*/src"
+        ],
+        "coding-standards-apply": [
+            "@coding-standards-apply/phpcs"
+        ],
+        "coding-standards-apply/phpcs": [
+            "vendor/bin/phpcbf --standard=phpcs.xml.dist"
+        ],
+        "coding-standards-check": [
+            "@coding-standards-check/phpcs"
+        ],
+        "coding-standards-check/phpcs": [
+            "vendor/bin/phpcs --standard=phpcs.xml.dist"
+        ]
+    }
+}
